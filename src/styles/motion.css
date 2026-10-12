@@ -1,0 +1,171 @@
+.cover-enter-from,
+.invite-enter-from,
+.groom-enter-from,
+.bride-enter-from,
+.story-enter-from,
+.schedule-enter-from,
+.gallery-enter-from,
+.info-enter-from,
+.countdown-enter-from,
+.map-enter-from {
+  opacity: 0;
+}
+
+.cover-enter-from { transform: scale(1.04); }
+.invite-enter-from { transform: translateY(24px); }
+.groom-enter-from { transform: translateX(-32px); }
+.bride-enter-from { transform: translateX(32px); }
+.story-enter-from { clip-path: inset(50% 50% 50% 50%); }
+.schedule-enter-from { filter: blur(8px); }
+.gallery-enter-from { transform: scale(0.92); }
+.info-enter-from { clip-path: inset(0 0 100% 0); }
+.countdown-enter-from { transform: perspective(800px) rotateY(12deg); }
+.map-enter-from { transform: translateY(100%); }
+
+.cover-enter-active,
+.invite-enter-active,
+.groom-enter-active,
+.bride-enter-active,
+.story-enter-active,
+.schedule-enter-active,
+.gallery-enter-active,
+.info-enter-active,
+.countdown-enter-active,
+.map-enter-active {
+  transition:
+    opacity 640ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 640ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 640ms cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 640ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover-enter-to,
+.invite-enter-to,
+.groom-enter-to,
+.bride-enter-to,
+.story-enter-to,
+.schedule-enter-to,
+.gallery-enter-to,
+.info-enter-to,
+.countdown-enter-to,
+.map-enter-to {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: none;
+}
+
+.cover-leave-active,
+.invite-leave-active,
+.groom-leave-active,
+.bride-leave-active,
+.story-leave-active,
+.schedule-leave-active,
+.gallery-leave-active,
+.info-leave-active,
+.countdown-leave-active,
+.map-leave-active {
+  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover-leave-to,
+.invite-leave-to,
+.groom-leave-to,
+.bride-leave-to,
+.story-leave-to,
+.schedule-leave-to,
+.gallery-leave-to,
+.info-leave-to,
+.countdown-leave-to,
+.map-leave-to {
+  opacity: 0;
+}
+
+.rise,
+.pop,
+.fade-late {
+  opacity: 0;
+}
+
+.is-in .rise {
+  animation: rise-in 640ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-in .pop {
+  animation: pop-in 640ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-in .fade-late {
+  animation: fade-in 640ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+}
+
+.is-in .d1 { animation-delay: 0ms; }
+.is-in .d2 { animation-delay: 80ms; }
+.is-in .d3 { animation-delay: 160ms; }
+.is-in .d4 { animation-delay: 240ms; }
+.is-in .d5 { animation-delay: 320ms; }
+.is-in .d6 { animation-delay: 400ms; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-enter-active,
+  .invite-enter-active,
+  .groom-enter-active,
+  .bride-enter-active,
+  .story-enter-active,
+  .schedule-enter-active,
+  .gallery-enter-active,
+  .info-enter-active,
+  .countdown-enter-active,
+  .map-enter-active,
+  .cover-leave-active,
+  .invite-leave-active,
+  .groom-leave-active,
+  .bride-leave-active,
+  .story-leave-active,
+  .schedule-leave-active,
+  .gallery-leave-active,
+  .info-leave-active,
+  .countdown-leave-active,
+  .map-leave-active {
+    transition: opacity 180ms linear;
+  }
+
+  .cover-enter-from,
+  .invite-enter-from,
+  .groom-enter-from,
+  .bride-enter-from,
+  .story-enter-from,
+  .schedule-enter-from,
+  .gallery-enter-from,
+  .info-enter-from,
+  .countdown-enter-from,
+  .map-enter-from {
+    opacity: 0;
+    transform: none;
+    filter: none;
+    clip-path: none;
+  }
+
+  .rise,
+  .pop,
+  .fade-late {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
