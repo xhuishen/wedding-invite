@@ -4,15 +4,16 @@
 
 **Goal:** 做一个手机全屏翻页的静态婚礼邀请函，十页各有不同转场，图片区可替换，最后一页打开导航。
 
-**Architecture:** Vue 3 单页应用，不用路由。`invitation.ts` 保存全部文案与链接，`propsFor` 把当前页字段交给页面组件。`usePager` 管页码、方向和 700ms 锁定。`Pager` 用 `<Transition>` 按页 id 播转场，进入结束后才给内容加 `is-in`。
+**Architecture:** Vue 3 单页应用，不用路由。`invitation.js` 保存全部文案与链接，`propsFor` 把当前页字段交给页面组件。`usePager` 管页码、方向和 700ms 锁定。`Pager` 用 `<Transition>` 按页 id 播转场，进入结束后才给内容加 `is-in`。
 
-**Tech Stack:** Vue 3、Vite 6、TypeScript、Tailwind CSS 4（`@tailwindcss/vite`）、Vitest、`@vue/test-utils`、jsdom。
+**Tech Stack:** Vue 3、Vite 6、JavaScript、Tailwind CSS 4（`@tailwindcss/vite`）、Vitest、`@vue/test-utils`、jsdom。不使用 TypeScript。
 
 **Spec:** `docs/superpowers/specs/2026-10-12-wedding-invite-design.md`
 
 ## Global Constraints
 
-- Vue 3、Vite、TypeScript、Tailwind CSS 4（`@tailwindcss/vite`）。单文件组件使用 `<script setup>`。
+- Vue 3、Vite、JavaScript、Tailwind CSS 4（`@tailwindcss/vite`）。单文件组件使用 `<script setup>`，不要 `lang="ts"`。
+- 语言覆盖（用户 2026-10-12）：计划正文里的 `.ts` 一律改成 `.js`，测试改成 `.spec.js`。不要 `tsconfig.json`、`vue-tsc`、`typescript`、类型标注、`interface`、`type`、`as const`。`npm run build` 只运行 `vite build`。行为、文案、断言保持不变。
 - 不引入 Vue Router、Element Plus、Headless UI，不加载 Google Fonts。
 - 字体：`"Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif`。
 - 色值：手机外背景 `#e7e1d6`，页面纸色 `#f6f1e8`，正文 `#2b2724`，辅助文字 `#7a7168`，金色 `#a68456`，分割线 `#d9cbb6`。

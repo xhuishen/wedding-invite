@@ -14,8 +14,8 @@
 
 ## 技术栈
 
-- Vue 3、Vite、TypeScript、Tailwind CSS 4（`@tailwindcss/vite`）。
-- 单文件组件使用 `<script setup>`。
+- Vue 3、Vite、JavaScript、Tailwind CSS 4（`@tailwindcss/vite`）。不使用 TypeScript。
+- 单文件组件使用 `<script setup>`，不要 `lang="ts"`。
 - 不引入 Vue Router、Element Plus、Headless UI。
 - 字体使用系统宋体栈：`"Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif`。不加载 Google Fonts。
 
@@ -88,15 +88,14 @@
 ```
 index.html
 package.json
-vite.config.ts
-tsconfig.json
-src/main.ts
+vite.config.js
+src/main.js
 src/App.vue                      外壳：外侧背景、430px 手机框、挂载翻页器
 src/styles/main.css              Tailwind 与颜色、字体
 src/styles/motion.css            十种进入转场与内容入场
-src/data/invitation.ts           全部示例文案、图片槽、地图链接
-src/composables/usePager.ts      页码、方向、锁定、手势与键盘
-src/composables/useCountdown.ts  按 Asia/Shanghai 计算天数或两句替代文案
+src/data/invitation.js           全部示例文案、图片槽、地图链接
+src/composables/usePager.js      页码、方向、锁定、手势与键盘
+src/composables/useCountdown.js  按 Asia/Shanghai 计算天数或两句替代文案
 src/components/Pager.vue         Transition、当前页、圆点
 src/components/PageDots.vue      十个圆点
 src/components/PhotoSlot.vue     线框、占位文案、可选图片
@@ -111,7 +110,7 @@ src/components/pages/PageCountdown.vue
 src/components/pages/PageMap.vue
 ```
 
-`invitation.ts` 导出一份只读数据。页面组件只接收自己那一页的字段，不互相引用。替换姓名、日期、酒店时只改这一份数据和倒计时的目标时间。
+`invitation.js` 导出一份只读数据。页面组件只接收自己那一页的字段，不互相引用。替换姓名、日期、酒店时只改这一份数据和倒计时的目标时间。
 
 图片放在 `public/photos/`，在数据里写 `src: "/photos/cover.webp"`。未填写 `src` 的槽保持占位。
 
@@ -150,7 +149,7 @@ src/components/pages/PageMap.vue
 
 ## 验收
 
-- `npm run build` 成功，产物为可静态部署的 `dist/`。
+- `npm run build` 成功，产物为可静态部署的 `dist/`。构建命令是 `vite build`，不跑 TypeScript 检查。
 - 390px 宽度下从封面滑到地图，十页都能到达。
 - 十页进入转场彼此不同；打开系统「减少动效」后只剩短淡入淡出。
 - 未配置图片时，每个图片槽都显示线框和「图片展示区」。
