@@ -2,15 +2,14 @@ import { describe, expect, it } from 'vitest'
 import { invitation, pageOrder, propsFor, systemMapUrl } from './invitation'
 
 describe('invitation data', () => {
-  it('keeps ten page ids in order', () => {
+  it('keeps nine page ids in order', () => {
     expect(pageOrder).toEqual([
       'cover',
       'invite',
-      'groom',
-      'bride',
-      'story',
-      'schedule',
-      'gallery',
+      'photo-1',
+      'photo-2',
+      'photo-3',
+      'photo-4',
       'info',
       'countdown',
       'map',
@@ -49,40 +48,24 @@ describe('invitation data', () => {
       lines: ['谨订于', '二〇二六年十月十八日', '恭备薄酌', '敬请光临'],
       photo: { id: 'invite', label: '邀请函配图', ratio: 'landscape' },
     })
-    expect(propsFor('groom')).toMatchObject({
-      role: '新郎',
-      name: '陈予安',
-      line: '把日子过成想一起走的路',
-      side: 'left',
-      photo: { label: '新郎肖像', ratio: 'portrait' },
+    expect(propsFor('photo-1').photo).toMatchObject({
+      id: 'photo-1',
+      label: '照片一',
+      motion: 'fly-left',
+      icon: 'ring',
+      title: '相视一笑',
     })
-    expect(propsFor('bride')).toMatchObject({
-      role: '新娘',
-      name: '林知夏',
-      line: '遇见你之后，寻常日子也发光',
-      side: 'right',
-      photo: { label: '新娘肖像', ratio: 'portrait' },
+    expect(propsFor('photo-4').photo).toMatchObject({
+      id: 'photo-4',
+      label: '照片四',
+      motion: 'fly-down',
+      icon: 'star',
+      title: '请来看看',
     })
-    const story = propsFor('story')
-    expect(story.beats.map((beat) => beat.date)).toEqual(['2020.05', '2022.09', '2026.10'])
-    expect(story.beats.map((beat) => beat.title)).toEqual(['初见', '确定', '成礼'])
-    expect(story.beats.every((beat) => beat.photo.ratio === 'square')).toBe(true)
-    const schedule = propsFor('schedule')
-    expect(schedule.items).toEqual([
-      { time: '10:30', title: '迎宾' },
-      { time: '11:18', title: '仪式' },
-      { time: '12:00', title: '午宴' },
-      { time: '14:00', title: '合影送客' },
-    ])
-    const gallery = propsFor('gallery')
-    expect(gallery.photos).toHaveLength(6)
-    expect(gallery.photos[0]?.label).toBe('照片一')
-    expect(gallery.photos[5]?.label).toBe('照片六')
-    expect(gallery.photos.every((photo) => photo.ratio === 'portrait')).toBe(true)
     expect(propsFor('info')).toMatchObject({
-      dressCode: '浅色礼服即可，请避开全白',
       address: '上海市虹口区黄浦路199号',
     })
+    expect(propsFor('info').dressCode).toBeUndefined()
     expect(propsFor('countdown')).toMatchObject({
       ceremonyIso: '2026-10-18T11:18:00+08:00',
       note: '愿你出席，见证这个日子',

@@ -1,10 +1,9 @@
 .cover-enter-from,
 .invite-enter-from,
-.groom-enter-from,
-.bride-enter-from,
-.story-enter-from,
-.schedule-enter-from,
-.gallery-enter-from,
+.photo-1-enter-from,
+.photo-2-enter-from,
+.photo-3-enter-from,
+.photo-4-enter-from,
 .info-enter-from,
 .countdown-enter-from,
 .map-enter-from {
@@ -13,22 +12,20 @@
 
 .cover-enter-from { transform: scale(1.04); }
 .invite-enter-from { transform: translateY(24px); }
-.groom-enter-from { transform: translateX(-32px); }
-.bride-enter-from { transform: translateX(32px); }
-.story-enter-from { clip-path: inset(50% 50% 50% 50%); }
-.schedule-enter-from { filter: blur(8px); }
-.gallery-enter-from { transform: scale(0.92); }
+.photo-1-enter-from { transform: translateX(-32px); }
+.photo-2-enter-from { transform: translateX(32px); }
+.photo-3-enter-from { clip-path: inset(50% 50% 50% 50%); }
+.photo-4-enter-from { transform: scale(0.92); }
 .info-enter-from { clip-path: inset(0 0 100% 0); }
 .countdown-enter-from { transform: perspective(800px) rotateY(12deg); }
 .map-enter-from { transform: translateY(100%); }
 
 .cover-enter-active,
 .invite-enter-active,
-.groom-enter-active,
-.bride-enter-active,
-.story-enter-active,
-.schedule-enter-active,
-.gallery-enter-active,
+.photo-1-enter-active,
+.photo-2-enter-active,
+.photo-3-enter-active,
+.photo-4-enter-active,
 .info-enter-active,
 .countdown-enter-active,
 .map-enter-active {
@@ -41,11 +38,10 @@
 
 .cover-enter-to,
 .invite-enter-to,
-.groom-enter-to,
-.bride-enter-to,
-.story-enter-to,
-.schedule-enter-to,
-.gallery-enter-to,
+.photo-1-enter-to,
+.photo-2-enter-to,
+.photo-3-enter-to,
+.photo-4-enter-to,
 .info-enter-to,
 .countdown-enter-to,
 .map-enter-to {
@@ -55,18 +51,17 @@
   clip-path: none;
 }
 
-.story-enter-to,
+.photo-3-enter-to,
 .info-enter-to {
   clip-path: inset(0 0 0 0);
 }
 
 .cover-leave-active,
 .invite-leave-active,
-.groom-leave-active,
-.bride-leave-active,
-.story-leave-active,
-.schedule-leave-active,
-.gallery-leave-active,
+.photo-1-leave-active,
+.photo-2-leave-active,
+.photo-3-leave-active,
+.photo-4-leave-active,
 .info-leave-active,
 .countdown-leave-active,
 .map-leave-active {
@@ -75,11 +70,10 @@
 
 .cover-leave-to,
 .invite-leave-to,
-.groom-leave-to,
-.bride-leave-to,
-.story-leave-to,
-.schedule-leave-to,
-.gallery-leave-to,
+.photo-1-leave-to,
+.photo-2-leave-to,
+.photo-3-leave-to,
+.photo-4-leave-to,
 .info-leave-to,
 .countdown-leave-to,
 .map-leave-to {
@@ -126,24 +120,65 @@
   to { opacity: 1; }
 }
 
+.fly-left,
+.fly-right,
+.fly-up,
+.fly-down {
+  opacity: 0;
+}
+
+.is-in .fly-left {
+  animation: fly-left 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-in .fly-right {
+  animation: fly-right 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-in .fly-up {
+  animation: fly-up 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.is-in .fly-down {
+  animation: fly-down 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fly-left {
+  from { opacity: 0; transform: translate3d(-56px, 16px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fly-right {
+  from { opacity: 0; transform: translate3d(56px, 16px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fly-up {
+  from { opacity: 0; transform: translate3d(0, 64px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fly-down {
+  from { opacity: 0; transform: translate3d(0, -64px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cover-enter-active,
   .invite-enter-active,
-  .groom-enter-active,
-  .bride-enter-active,
-  .story-enter-active,
-  .schedule-enter-active,
-  .gallery-enter-active,
+  .photo-1-enter-active,
+  .photo-2-enter-active,
+  .photo-3-enter-active,
+  .photo-4-enter-active,
   .info-enter-active,
   .countdown-enter-active,
   .map-enter-active,
   .cover-leave-active,
   .invite-leave-active,
-  .groom-leave-active,
-  .bride-leave-active,
-  .story-leave-active,
-  .schedule-leave-active,
-  .gallery-leave-active,
+  .photo-1-leave-active,
+  .photo-2-leave-active,
+  .photo-3-leave-active,
+  .photo-4-leave-active,
   .info-leave-active,
   .countdown-leave-active,
   .map-leave-active {
@@ -152,11 +187,10 @@
 
   .cover-enter-from,
   .invite-enter-from,
-  .groom-enter-from,
-  .bride-enter-from,
-  .story-enter-from,
-  .schedule-enter-from,
-  .gallery-enter-from,
+  .photo-1-enter-from,
+  .photo-2-enter-from,
+  .photo-3-enter-from,
+  .photo-4-enter-from,
   .info-enter-from,
   .countdown-enter-from,
   .map-enter-from {
@@ -168,7 +202,11 @@
 
   .rise,
   .pop,
-  .fade-late {
+  .fade-late,
+  .fly-left,
+  .fly-right,
+  .fly-up,
+  .fly-down {
     opacity: 1;
     transform: none;
     animation: none;
@@ -176,7 +214,11 @@
 
   .is-in .rise,
   .is-in .pop,
-  .is-in .fade-late {
+  .is-in .fade-late,
+  .is-in .fly-left,
+  .is-in .fly-right,
+  .is-in .fly-up,
+  .is-in .fly-down {
     animation: none;
     opacity: 1;
     transform: none;

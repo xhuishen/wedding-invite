@@ -6,6 +6,7 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  fill: Boolean,
 })
 
 const failed = ref(false)
@@ -19,6 +20,7 @@ watch(
 
 const showImage = computed(() => Boolean(props.photo.src) && !failed.value)
 const ratioClass = computed(() => {
+  if (props.fill) return 'h-full w-full'
   if (props.photo.ratio === 'landscape') return 'aspect-[4/3]'
   if (props.photo.ratio === 'square') return 'aspect-square'
   return 'aspect-[3/4]'

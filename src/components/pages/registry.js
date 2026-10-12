@@ -1,21 +1,17 @@
-import PageCover from './PageCover.vue'
 import PageCountdown from './PageCountdown.vue'
-import PageGallery from './PageGallery.vue'
+import PageCover from './PageCover.vue'
 import PageInfo from './PageInfo.vue'
 import PageInvite from './PageInvite.vue'
 import PageMap from './PageMap.vue'
-import PagePerson from './PagePerson.vue'
-import PageSchedule from './PageSchedule.vue'
-import PageStory from './PageStory.vue'
+import PagePhoto from './PagePhoto.vue'
 
 export const pageViews = {
   cover: PageCover,
   invite: PageInvite,
-  groom: PagePerson,
-  bride: PagePerson,
-  story: PageStory,
-  schedule: PageSchedule,
-  gallery: PageGallery,
+  'photo-1': PagePhoto,
+  'photo-2': PagePhoto,
+  'photo-3': PagePhoto,
+  'photo-4': PagePhoto,
   info: PageInfo,
   countdown: PageCountdown,
   map: PageMap,
