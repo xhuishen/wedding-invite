@@ -1,7 +1,10 @@
 import { defineComponent, h } from 'vue'
 import PageCover from './PageCover.vue'
+import PageGallery from './PageGallery.vue'
 import PageInvite from './PageInvite.vue'
 import PagePerson from './PagePerson.vue'
+import PageSchedule from './PageSchedule.vue'
+import PageStory from './PageStory.vue'
 
 function stub(pageId) {
   return defineComponent({
@@ -19,9 +22,9 @@ export const pageViews = {
   invite: PageInvite,
   groom: PagePerson,
   bride: PagePerson,
-  story: stub('story'),
-  schedule: stub('schedule'),
-  gallery: stub('gallery'),
+  story: PageStory,
+  schedule: PageSchedule,
+  gallery: PageGallery,
   info: stub('info'),
   countdown: stub('countdown'),
   map: stub('map'),
