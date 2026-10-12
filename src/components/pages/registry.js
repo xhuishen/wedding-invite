@@ -1,4 +1,7 @@
 import { defineComponent, h } from 'vue'
+import PageCover from './PageCover.vue'
+import PageInvite from './PageInvite.vue'
+import PagePerson from './PagePerson.vue'
 
 function stub(pageId) {
   return defineComponent({
@@ -12,10 +15,10 @@ function stub(pageId) {
 }
 
 export const pageViews = {
-  cover: stub('cover'),
-  invite: stub('invite'),
-  groom: stub('groom'),
-  bride: stub('bride'),
+  cover: PageCover,
+  invite: PageInvite,
+  groom: PagePerson,
+  bride: PagePerson,
   story: stub('story'),
   schedule: stub('schedule'),
   gallery: stub('gallery'),
