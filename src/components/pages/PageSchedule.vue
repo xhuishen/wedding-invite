@@ -11,7 +11,7 @@ defineProps({
     <ol class="mt-8">
       <li
         v-for="(item, index) in items"
-        :key="item.time"
+        :key="index"
         class="rise flex items-baseline gap-6 border-b border-[#d9cbb6] py-4"
         :class="`d${index + 1}`"
       >

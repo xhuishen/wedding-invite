@@ -21,7 +21,7 @@ defineProps({
   >
     <PhotoSlot class="fade-late" :photo="photo" />
     <div class="text-center text-xl leading-10">
-      <p v-for="(line, index) in lines" :key="line" class="rise" :class="`d${index + 1}`">
+      <p v-for="(line, index) in lines" :key="index" class="rise" :class="`d${index + 1}`">
         {{ line }}
       </p>
     </div>

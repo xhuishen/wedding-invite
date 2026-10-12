@@ -55,6 +55,11 @@
   clip-path: none;
 }
 
+.story-enter-to,
+.info-enter-to {
+  clip-path: inset(0 0 0 0);
+}
+
 .cover-leave-active,
 .invite-leave-active,
 .groom-leave-active,
@@ -167,5 +172,13 @@
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  .is-in .rise,
+  .is-in .pop,
+  .is-in .fade-late {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
